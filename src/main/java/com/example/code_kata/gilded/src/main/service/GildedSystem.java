@@ -2,6 +2,7 @@ package com.example.code_kata.gilded.src.main.service;
 
 import com.example.code_kata.gilded.src.main.domain.AgedBrieItem;
 import com.example.code_kata.gilded.src.main.domain.BackstagePassesItem;
+import com.example.code_kata.gilded.src.main.domain.ConjuredItem;
 import com.example.code_kata.gilded.src.main.domain.NormalItem;
 import com.example.code_kata.gilded.src.main.domain.SulfurasItem;
 import com.example.code_kata.gilded.src.main.domain.Item;
@@ -33,7 +34,8 @@ public class GildedSystem {
                 new AgedBrieItem(),
                 new BackstagePassesItem(),
                 new NormalItem(),
-                new SulfurasItem()));
+                new SulfurasItem(),
+                new ConjuredItem()));
     }
 
     @Scheduled(fixedRate = 86400000)
