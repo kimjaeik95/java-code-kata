@@ -12,6 +12,13 @@ package com.example.code_kata.gilded.src.main.domain;
  * 4/4/26        JAEIK       최초 생성
  */
 public class ConjuredItem extends Item {
+    public ConjuredItem() {
+    }
+
+    public ConjuredItem(int sellIn, int quality) {
+        super(sellIn, quality);
+    }
+
     @Override
     public void updateQuality() {
         if (sellIn <= 0) {
@@ -24,5 +31,7 @@ public class ConjuredItem extends Item {
             System.out.println("음수로 떨어 질 수 없습니다.");
             quality = 0;
         }
+
+
     }
 }

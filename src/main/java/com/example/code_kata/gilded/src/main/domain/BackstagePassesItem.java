@@ -31,4 +31,11 @@ public class BackstagePassesItem extends Item {
             quality = 50;
         }
     }
+
+    public BackstagePassesItem() {
+    }
+
+    public BackstagePassesItem(int sellIn, int quality) {
+        super(sellIn, quality);
+    }
 }

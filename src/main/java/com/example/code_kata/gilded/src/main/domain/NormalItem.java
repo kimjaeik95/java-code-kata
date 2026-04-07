@@ -27,4 +27,11 @@ public class NormalItem extends Item {
             quality = 0;
         }
     }
+
+    public NormalItem() {
+    }
+
+    public NormalItem(int sellIn, int quality) {
+        super(sellIn, quality);
+    }
 }

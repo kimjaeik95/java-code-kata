@@ -1,6 +1,7 @@
 package com.example.code_kata.gilded.src.main.domain;
 
 import com.example.code_kata.gilded.src.main.domain.Item;
+import lombok.Getter;
 
 /**
  * packageName    : com.example.code_kata.gilded.src.main
@@ -13,6 +14,7 @@ import com.example.code_kata.gilded.src.main.domain.Item;
  * -----------------------------------------------------------
  * 4/4/26        JAEIK       최초 생성
  */
+@Getter
 public class AgedBrieItem extends Item {
 
     // 오래된 브리치즈는 시간이 지날수록 Quality 가 올라감
@@ -25,6 +27,13 @@ public class AgedBrieItem extends Item {
             System.out.println("값은 50을 초과 할 수 없습니다.");
             quality = 50;
         }
+    }
+
+    public AgedBrieItem() {
+    }
+
+    public AgedBrieItem(int sellIn, int quality) {
+        super(sellIn, quality);
     }
 }
 
