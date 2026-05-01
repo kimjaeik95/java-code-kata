@@ -4,7 +4,6 @@ import com.example.code_kata.bank.src.main.config.JdbcConfig;
 import com.example.code_kata.bank.src.main.domain.Account;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -83,6 +82,26 @@ public class AccountDao {
             throw new RuntimeException(e);
         }
         return null;
+    }
+
+    public Optional<Account> transacFindById(Connection con, Long id) {
+        String sql = "SELECT * FROM account WHERE id = ? FOR UPDATE";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setLong(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return Optional.of(new Account(
+                        rs.getLong("id"),
+                        rs.getLong("customer_id"),
+                        rs.getString("account_number"),
+                        rs.getBigDecimal("balance")
+                ));
+            }
+            return Optional.empty();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void deleteById(Long id) {

@@ -31,4 +31,18 @@ public class Account {
         this.accountNumber = accountNumber;
         this.balance = balance;
     }
+
+    public void minusAmount(BigDecimal amount) {
+        if (this.balance.compareTo(amount) < 0) {
+            throw new IllegalArgumentException("잔액 부족");
+        }
+        this.balance = this.balance.subtract(amount);
+    }
+
+    public void plusAmount(BigDecimal amount) {
+        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("입금 금액은 0 보다 커야합니다.");
+        }
+        this.balance = this.balance.add(amount);
+    }
 }

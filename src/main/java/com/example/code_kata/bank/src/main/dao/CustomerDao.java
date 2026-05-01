@@ -2,14 +2,13 @@ package com.example.code_kata.bank.src.main.dao;
 
 import com.example.code_kata.bank.src.main.config.JdbcConfig;
 import com.example.code_kata.bank.src.main.domain.Customer;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
