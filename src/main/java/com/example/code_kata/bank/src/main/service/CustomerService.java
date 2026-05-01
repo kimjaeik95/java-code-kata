@@ -33,6 +33,12 @@ public class CustomerService {
          return customerDao.findAll();
     }
 
+    public Customer findByCustomer(Long id) {
+        Customer customer = customerDao.findByCustomer(id)
+                .orElseThrow(() -> new IllegalArgumentException("고객이 없습니다."));
+        return customer;
+    }
+
     public void deleteFindById(Long id) {
         customerDao.deleteCustomer(id);
     }

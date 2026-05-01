@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * packageName    : com.example.code_kata.bank.src.main.dao
@@ -64,6 +65,26 @@ public class CustomerDao {
             throw new RuntimeException(e);
         }
         return list;
+    }
+
+    public Optional<Customer> findByCustomer(Long id) {
+        String sql = "SELECT * FROM customer WHERE id = ?";
+        try {
+            Connection con = JdbcConfig.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setLong(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return Optional.of(new Customer(
+                        rs.getLong("id"),
+                        rs.getNString("name")
+                ));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 
     public void deleteCustomer(Long id) {

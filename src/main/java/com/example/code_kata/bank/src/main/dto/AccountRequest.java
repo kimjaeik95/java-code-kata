@@ -1,4 +1,4 @@
-package com.example.code_kata.bank.src.main.domain;
+package com.example.code_kata.bank.src.main.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,28 +7,21 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 /**
- * packageName    : com.example.code_kata.bank.src.main.domain
- * fileName       : Account
+ * packageName    : com.example.code_kata.bank.src.main.dto
+ * fileName       : AccountRequest
  * author         : JAEIK
- * date           : 4/27/26
+ * date           : 5/1/26
  * description    :
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 4/27/26        JAEIK       최초 생성
+ * 5/1/26        JAEIK       최초 생성
  */
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Account {
-    private Long id;
+public class AccountRequest {
     private Long customerId;
     private String accountNumber;
     private BigDecimal balance;
-
-    public Account(Long customerId, String accountNumber, BigDecimal balance) {
-        this.customerId = customerId;
-        this.accountNumber = accountNumber;
-        this.balance = balance;
-    }
 }

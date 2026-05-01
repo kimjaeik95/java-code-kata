@@ -31,6 +31,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/customer")
 public class CustomerController {
+    /*
+        컨트롤러에서 domain <-> dto  코드카타라서 변환하지않음
+     */
     private final CustomerService customerService;
 
     @PostMapping()
@@ -42,6 +45,12 @@ public class CustomerController {
     @GetMapping()
     public ResponseEntity<?> allCustomer() {
         List<Customer> customer = customerService.allCustomer();
+        return ResponseEntity.ok().body(customer);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> findByCustomer(@PathVariable("id") Long id) {
+        Customer customer = customerService.findByCustomer(id);
         return ResponseEntity.ok().body(customer);
     }
 
